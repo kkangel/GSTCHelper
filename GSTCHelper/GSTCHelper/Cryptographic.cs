@@ -51,6 +51,7 @@ namespace GSTCHelper
                 buf.Append("==");
             }
             return buf.ToString();
+           // return Convert.ToBase64String(buf);
         }
 
         private static int decode(char c)
@@ -134,6 +135,7 @@ namespace GSTCHelper
                 return;
             }
         }
-    }
+    }
+
     }
 }
