@@ -15,6 +15,7 @@ namespace GSTCHelper
         {
             int d;
             int len = data.Length;
+            
             StringBuilder buf = new StringBuilder((data.Length * 3) / 2);
             int end = len - 3;
             int i = 0;
@@ -88,7 +89,7 @@ namespace GSTCHelper
             
                 //try
                 //{
-                    decode(s,out bos);
+                    decode(s,ref bos);
                     byte[] decodedBytes = bos.ToArray();
                     try
                     {
@@ -109,9 +110,9 @@ namespace GSTCHelper
 
         }
 
-        private static void decode(String s,out MemoryStream os) 
+        private static void decode(String s,ref MemoryStream os) 
         {
-            os = null;
+            
             int i = 0;
         int len = s.Length;
         while (true) {
