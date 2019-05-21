@@ -81,6 +81,7 @@
             this.btnDESEncode.TabIndex = 4;
             this.btnDESEncode.Text = "DES加密";
             this.btnDESEncode.UseVisualStyleBackColor = true;
+            this.btnDESEncode.Click += new System.EventHandler(this.btnDESEncode_Click);
             // 
             // btnDESDecode
             // 
@@ -90,6 +91,7 @@
             this.btnDESDecode.TabIndex = 5;
             this.btnDESDecode.Text = "DES解密";
             this.btnDESDecode.UseVisualStyleBackColor = true;
+            this.btnDESDecode.Click += new System.EventHandler(this.btnDESDecode_Click);
             // 
             // btnFunc
             // 

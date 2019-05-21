@@ -20,6 +20,8 @@ namespace GSTCHelper
             int end = len - 3;
             int i = 0;
             int n = 0;
+            //将3个byte合并成一个int后 拆成4个字符3*8=4*6
+            //每循环15次增加一个空格标志位
             while (i <= end)
             {
                 d = (((data[i] & 255) << 16) | ((data[i + 1] & 255) << 8)) | (data[i + 2] & 255);
@@ -36,6 +38,7 @@ namespace GSTCHelper
                 }
                 n = n2;
             }
+            //最后有两位的增加一个=
             if (i == (0 + len) - 2)
             {
                 d = ((data[i] & 255) << 16) | ((data[i + 1] & 255) << 8);
@@ -44,6 +47,7 @@ namespace GSTCHelper
                 buf.Append(legalChars[(d >> 6) & 63]);
                 buf.Append("=");
             }
+            //最后有一位的增加两个=
             else if (i == (0 + len) - 1)
             {
                 d = (data[i] & 255) << 16;
@@ -119,6 +123,7 @@ namespace GSTCHelper
             if (i<len && s[i] <= ' ') {
                 i++;
             } else if (i != len) {
+                
                     int tri = (((decode(s[i]) << 18) + (decode(s[i+1]) << 12)) + (decode(s[i+2]) << 6)) + decode(s[i+3]);
                     
                     os.WriteByte((byte)((tri >> 16) & 255));
@@ -131,7 +136,11 @@ namespace GSTCHelper
                         return;
                     }
                 }
-                return;
+                else
+                {
+                    return;
+                    }
+               
             } else {
                 return;
             }
